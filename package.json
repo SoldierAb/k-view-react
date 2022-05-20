@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "dumi dev",
-    "build:site": "cross-env SITE_ENV=PREVIEW rimraf site && dumi build",
-    "build:preview": "cross-env npm run build:site && serve site",
+    "build:preview": "npm run build:site && serve site",
+    "build:site": "rimraf site && dumi build",
     "deploy:site": "npm run build:site && gh-pages -d site"
   },
   "author": "cgj",

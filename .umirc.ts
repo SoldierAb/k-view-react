@@ -2,7 +2,9 @@ import { defineConfig } from 'dumi'
 
 let base, publicPath;
 
-if (process.env.SITE_ENV === 'PREVIEW') {
+console.log(process.env)
+
+if (process.env.NODE_ENV === 'production') {
     base = '/k-view-react',
     publicPath= '/k-view-react/'
 }
@@ -16,5 +18,7 @@ const conf = {
     base,
     publicPath
 }
+
+console.log('umi conf:  ',conf)
 
 export default defineConfig(conf)
