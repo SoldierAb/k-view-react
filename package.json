@@ -1,0 +1,56 @@
+{
+  "name": "k-view-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "dumi dev",
+    "build:site": "rimraf site && dumi build",
+    "build:preview": "cross-env SITE_ENV=PREVIEW npm run build:site && serve site",
+    "deploy:site": "npm run build:site && gh-pages -d site"
+  },
+  "author": "cgj",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "@umijs/fabric": "^2.10.2",
+    "commitizen": "^4.2.4",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "dumi": "^1.1.42",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "typescript": "^4.6.4"
+  },
+  "lint-staged": {
+    "src/**/*.ts?(x)": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.less": [
+      "stylelint --syntax less --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  }
+}
