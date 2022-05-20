@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "dumi dev",
     "build:site": "cross-env SITE_ENV=PREVIEW rimraf site && dumi build",
-    "build:preview": "cross-env SITE_ENV=PREVIEW npm run build:site && serve site",
+    "build:preview": "cross-env npm run build:site && serve site",
     "deploy:site": "npm run build:site && gh-pages -d site"
   },
   "author": "cgj",
@@ -27,6 +27,7 @@
     "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "serve": "^13.0.2",
     "typescript": "^4.6.4"
   },
   "lint-staged": {
