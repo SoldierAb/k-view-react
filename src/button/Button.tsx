@@ -15,7 +15,7 @@ const prefixCls = 'k';
 
 export type ButtonTypes = Record<Required<ButtonProps>['type'], string>
 
-const types: ButtonTypes = {
+export const types: ButtonTypes = {
   primary: '#5352ED',
   success: '#2ED573',
   warning: '#FFA502',

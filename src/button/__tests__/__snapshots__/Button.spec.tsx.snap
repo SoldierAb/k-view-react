@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button render 1`] = `
+<div>
+  <button
+    class="k-button-container"
+    style="background: rgb(83, 82, 237);"
+  >
+    primary
+  </button>
+</div>
+`;
+
+exports[`Button type render correctly 1`] = `
+<button
+  class="k-button-container"
+  style="background: rgb(83, 82, 237);"
+>
+  primary
+</button>
+`;
+
+exports[`Button type render correctly 2`] = `
+<button
+  class="k-button-container"
+  style="background: rgb(46, 213, 115);"
+>
+  success
+</button>
+`;
+
+exports[`Button type render correctly 3`] = `
+<button
+  class="k-button-container"
+  style="background: rgb(255, 165, 2);"
+>
+  warning
+</button>
+`;
+
+exports[`Button type render correctly 4`] = `
+<button
+  class="k-button-container"
+  style="background: rgb(255, 71, 87);"
+>
+  error
+</button>
+`;

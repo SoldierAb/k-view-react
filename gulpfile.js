@@ -16,7 +16,8 @@ const paths =  {
     styles: "src/**/*.less",
     scripts: [
         "src/**/*.{ts,tsx}",
-        "!src/**/demos/**.{ts,tsx}"
+        "!src/**/demos/**.{ts,tsx}",
+        "!src/**/__tests__/**.{ts,tsx}"
     ]
 }
 
