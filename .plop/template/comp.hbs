@@ -1,0 +1,14 @@
+import React from 'react';
+import { {{pascalCase name}}Props } from './{{camelCase name}}Types';
+
+const defaultProps = {
+
+};
+
+const {{pascalCase name}}: React.FC<{{pascalCase name}}Props> = userProps => {
+  const props = { ...defaultProps, ...userProps };
+
+  return <>{{pascalCase name}}</>;
+};
+
+export default {{pascalCase name}};

@@ -4,6 +4,15 @@
   "description": "",
   "typings": "lib/index.d.ts",
   "main": "lib/index.js",
+  "module": "es/index.js",
+  "authors": {
+    "name": "cgj",
+    "email": "ab140140@163.com"
+  },
+  "files": [
+    "lib",
+    "es"
+  ],
   "scripts": {
     "dev": "dumi dev",
     "build:preview": "npm run build:site && serve site",
@@ -15,7 +24,8 @@
     "commit": "git add . && git-cz",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "test:update": "jest --updateSnapshot"
+    "test:update": "jest --updateSnapshot",
+    "gen": "node --experimental-loader esbuild-node-loader .plop/index.ts"
   },
   "author": "cgj",
   "license": "MIT",
@@ -39,6 +49,9 @@
     "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^1.1.42",
+    "esbuild": "^0.14.39",
+    "esbuild-node-loader": "^0.8.0",
+    "esmo": "^0.16.3",
     "gh-pages": "^4.0.0",
     "git-cz": "^4.9.0",
     "gulp": "^4.0.2",
@@ -51,12 +64,14 @@
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
     "lint-staged": "^12.4.1",
+    "plop": "^3.1.0",
     "prettier": "^2.6.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "serve": "^13.0.2",
     "through2": "^4.0.2",
     "ts-jest": "^28.0.2",
+    "ts-node": "^10.8.0",
     "typescript": "^4.6.4"
   },
   "sideEffects": [
