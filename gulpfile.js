@@ -4,6 +4,7 @@ const babel = require('gulp-babel')
 const less = require('gulp-less')
 const autoPrefixer = require('gulp-autoprefixer')
 const cssnano = require('gulp-cssnano') 
+const filter = require('gulp-filter')
 const through2 = require('through2')
 
 
@@ -37,11 +38,11 @@ function compile2Cjs (babelEnv, dest){
         .pipe(
             through2.obj(function z(file, encoding, next){
                 this.push(file.clone())
-                //
-                if (file.path.match(/(\/|\\)style(\/|\\)index\.js/)) {
+                // [comp]/style/css.js 文件生成, 提供以兼容使用方非less样式处理器（sass, stylus等）
+                if (file.path.match(/\/style\/index\.(js|ts|tsx)$/)) {
                     const content = file.contents.toString(encoding)
                     file.contents = Buffer.from(cssInjection(content))
-                    file.path = file.path.replace(/index\.js/, 'css.js')
+                    file.path = file.path.replace(/index\.(js|ts|tsx)$/, 'css.js');
                     this.push(file)
                 }
                 next()
@@ -61,6 +62,9 @@ function compileLess (){
     return gulp.src(paths.styles).pipe(less()).pipe(autoPrefixer()).pipe(cssnano({
         zindex: false,
         reduceIdents: false,
+    }))
+    .pipe(filter(function (file){ // 过滤空文件
+        return file.stat && file.contents.length
     }))
     .pipe(gulp.dest(paths.dest.lib))
     .pipe(gulp.dest(paths.dest.es))

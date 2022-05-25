@@ -1,8 +1,10 @@
-@root-prefix-cls: 'k';
+@import './mixin.less';
 
-@prefix-cls: @root-prefix-cls + 'button';
+@root-prefix-cls: k;
 
-.@{prefix-cls} {
+
+.@{root-prefix-cls}-button-container{
     background: white;
     padding: 10px;
+    .btn();
 }
